@@ -21,14 +21,14 @@ class GenericSolver{
     func actions (state: Pixel) -> [String] {
         var availableActions: [String] = []
         
-        if(state.X > 0) {
+        if(state.X - 1 > 0) {
             //Se puede mover para la izquierda
             if(labrinthMatrix[state.Y][state.X - 1] != "black") {
                 //No es pared
                 availableActions.append("left")
             }
         }
-        if(state.Y > 0) {
+        if(state.Y - 1 > 0) {
             //Se puede mover hacia arriba
             if(labrinthMatrix[state.Y - 1][state.X] != "black") {
                 //No es pared

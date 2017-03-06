@@ -149,14 +149,6 @@
                                     <outlet property="delegate" destination="SrC-bC-eDu" id="WTs-hd-mib"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gF1-BY-tlH">
-                                <rect key="frame" x="137" y="486" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="SolveBtn:" destination="SrC-bC-eDu" eventType="touchUpInside" id="Tfj-QV-Z1L"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fUO-tE-elM">
                                 <rect key="frame" x="67" y="428" width="187" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -173,6 +165,7 @@
                     <connections>
                         <outlet property="collecitonView" destination="nou-kj-fYu" id="F7e-ft-4Rx"/>
                         <outlet property="flowLayout" destination="xOk-VR-i64" id="GcW-rP-NAQ"/>
+                        <outlet property="selector" destination="fUO-tE-elM" id="Oup-4E-vpU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e46-Hd-zaY" userLabel="First Responder" sceneMemberID="firstResponder"/>

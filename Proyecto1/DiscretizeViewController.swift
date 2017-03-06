@@ -18,7 +18,9 @@ class DiscretizeViewController: UIViewController, UICollectionViewDataSource, UI
     var squaresInfo: [[String]] = [[""]]
     var squaresArray: [String] = Array()
     var red: Pixel = Pixel()
+    var greens: [Pixel] = []
     
+    @IBOutlet weak var selector: UISegmentedControl!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     @IBOutlet weak var collecitonView: UICollectionView!
@@ -44,15 +46,22 @@ class DiscretizeViewController: UIViewController, UICollectionViewDataSource, UI
         for row in matrix {
             x = 0
             squaresArray += row
-            if(red.equals(other: Pixel())) {
+            //if(red.equals(other: Pixel())) {
                 for item in row {
                     if(item == "red") {
                         red.X = x
                         red.Y = y
                     }
+                    if(item == "green") {
+                        var newPixel: Pixel = Pixel()
+                        newPixel.X = x
+                        newPixel.Y = y
+                        greens.append(newPixel)
+                    }
                     x += 1
                 }
-            }
+            //}
+            
             y += 1
             
         }
@@ -121,14 +130,32 @@ class DiscretizeViewController: UIViewController, UICollectionViewDataSource, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToSolutionSegue" {
             if let destination = segue.destination as? SolvedViewController {
-                let solver: DepthFirstSearch = DepthFirstSearch(initialState: red, matrix: squaresInfo)
-                let pathItems = solver.graphSearch()
+                var solver: Any? = nil
+                
+                let option = selector.selectedSegmentIndex
+                var pathItems: [Pixel] = []
+                if(option == 0) {
+                    solver = BreadthSearchFirst(initialState: red, matrix: squaresInfo)
+                    pathItems = (solver as! BreadthSearchFirst).graphSearch()
+                }else if(option == 1) {
+                    solver = DepthFirstSearch(initialState: red, matrix: squaresInfo)
+                    pathItems = (solver as! DepthFirstSearch).graphSearch()
+                }else if(option == 2) {
+                    solver = ADistanceHeuristic(initialState: red, matrix: squaresInfo)
+                    pathItems = (solver as! ADistanceHeuristic).graphSearch(finals: greens)
+                }else if(option == 3) {
+                    solver = AExtraHeuristic(initialState: red, matrix: squaresInfo)
+                    pathItems = (solver as! AExtraHeuristic).graphSearch(finals: greens)
+                }
+                //let solver: AExtraHeuristic = AExtraHeuristic(initialState: red, matrix: squaresInfo)
+                var newSquaresInfo: [[String]] = squaresInfo
+                //let pathItems = solver.graphSearch(finals: greens)
                 for pathItem in pathItems {
-                    if(!(squaresInfo[pathItem.Y][pathItem.X] == "red" || squaresInfo[pathItem.Y][pathItem.X] == "green")) {
-                        squaresInfo[pathItem.Y][pathItem.X] = "solution"
+                    if(!(newSquaresInfo[pathItem.Y][pathItem.X] == "red" || newSquaresInfo[pathItem.Y][pathItem.X] == "green")) {
+                        newSquaresInfo[pathItem.Y][pathItem.X] = "solution"
                     }
                 }
-                fillArrayOfValues(matrix: squaresInfo)
+                fillArrayOfValues(matrix: newSquaresInfo)
 
                 destination.solvedArray = self.squaresArray
                 destination.squaresHeight = self.squaresHeight

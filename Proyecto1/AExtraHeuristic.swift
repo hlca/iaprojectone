@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ADistanceHeuristic: GenericSolver {
+class AExtraHeuristic: GenericSolver {
     var explored: [Pixel] = []
     var selectedFinal: Pixel = Pixel()
     
@@ -41,7 +41,7 @@ class ADistanceHeuristic: GenericSolver {
                 print(path)
                 return path
             }
-            
+            print(path)
             //Expansion
             let myActions = actions(state: s)
             
@@ -69,7 +69,7 @@ class ADistanceHeuristic: GenericSolver {
             var oneAdded = false
             
             let myResult = result(state: s, action: selectedAction)
-                
+            
             var isExplored = false
             for thisExplored in explored {
                 if(thisExplored.equals(other: myResult)) {
@@ -90,7 +90,7 @@ class ADistanceHeuristic: GenericSolver {
     }
     
     func heuristic(state: Pixel, f: Pixel) -> Double {
-        let distance = sqrt(Double(pow(Double(f.X - state.X), 2)) + Double(pow(Double(f.Y - state.Y), 2)))
-        return distance
+        let distance =  abs(Int32(f.X - state.X)) + abs(Int32(f.Y - state.Y))
+        return Double(distance)
     }
 }

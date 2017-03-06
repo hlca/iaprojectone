@@ -24,6 +24,7 @@
 		978A52211E6B462D0048446A /* ADistanceHeuristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978A52201E6B462D0048446A /* ADistanceHeuristic.swift */; };
 		978A52231E6B4B630048446A /* GenericSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978A52221E6B4B630048446A /* GenericSolver.swift */; };
 		978A52251E6B6A8B0048446A /* SolvedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978A52241E6B6A8B0048446A /* SolvedViewController.swift */; };
+		978A52271E6C809F0048446A /* AExtraHeuristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978A52261E6C809F0048446A /* AExtraHeuristic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		978A52201E6B462D0048446A /* ADistanceHeuristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADistanceHeuristic.swift; sourceTree = "<group>"; };
 		978A52221E6B4B630048446A /* GenericSolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSolver.swift; sourceTree = "<group>"; };
 		978A52241E6B6A8B0048446A /* SolvedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolvedViewController.swift; sourceTree = "<group>"; };
+		978A52261E6C809F0048446A /* AExtraHeuristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AExtraHeuristic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				978A521E1E6B460E0048446A /* DepthFirstSearch.swift */,
 				978A52201E6B462D0048446A /* ADistanceHeuristic.swift */,
 				978A52221E6B4B630048446A /* GenericSolver.swift */,
+				978A52261E6C809F0048446A /* AExtraHeuristic.swift */,
 			);
 			name = Solvers;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				978A52231E6B4B630048446A /* GenericSolver.swift in Sources */,
 				978A52161E6B43820048446A /* ProblemSolvingProtocol.swift in Sources */,
 				978A52141E6B1E990048446A /* DiscretizeViewController.swift in Sources */,
+				978A52271E6C809F0048446A /* AExtraHeuristic.swift in Sources */,
 				978A52251E6B6A8B0048446A /* SolvedViewController.swift in Sources */,
 				978A521D1E6B45FD0048446A /* BreadthSearchFirst.swift in Sources */,
 				974184AB1E620C9D0050FBD8 /* PixelInfo.swift in Sources */,

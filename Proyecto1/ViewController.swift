@@ -89,22 +89,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     }else {
                         color = "black"
                     }
-                    
                 }
-                
-                //print(color)
                 arr[i][j] = color
             }
         }
-        
-        //print(widthStep)
-        //collectionView.sizeToFit()
-        
-        //collectionView.insertItems(at: IndexPath(row: 1, section: 1))
-//        let pixel: PixelInfo = Helpers.getRGBAs(fromImage: image!, x: 0, y: 0)
-//        print(pixel.red)
         DataMatrix = arr;
-        //print (arr)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -115,7 +104,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 discretize(width: width, height: height, image: image)
                 destination.squaresWidth = 15//widthStep/2.13333333333
                 destination.squaresHeight = 15//heightStep/2.13333333333
-                destination.squaresInfo = [["white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white"], ["black", "black", "black", "black", "white", "white", "white", "black", "black", "black", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white"], ["black", "black", "black", "black", "white", "white", "white", "black", "black", "black", "white", "white", "black", "black", "white", "white", "white", "white", "white", "white"], ["black", "black", "black", "black", "white", "white", "white", "white", "white", "white", "white", "white", "black", "black", "white", "white", "green", "white", "white", "white"], ["black", "black", "black", "black", "black", "white", "white", "white", "white", "white", "white", "white", "black", "black", "white", "white", "white", "white", "black", "black"], ["black", "black", "white", "black", "black", "black", "white", "white", "white", "white", "white", "black", "black", "black", "white", "white", "white", "black", "black", "black"], ["black", "white", "white", "white", "black", "black", "white", "white", "white", "white", "white", "black", "black", "black", "white", "white", "white", "white", "white", "white"], ["white", "white", "green", "white", "white", "white", "white", "white", "black", "black", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white"], ["white", "white", "green", "white", "black", "white", "white", "white", "black", "black", "black", "white", "white", "white", "white", "white", "white", "white", "white", "white"], ["black", "black", "white", "white", "black", "black", "white", "white", "black", "black", "black", "black", "white", "white", "white", "white", "white", "white", "white", "white"], ["white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "black", "black", "white", "black", "black", "black", "black", "black", "white", "white"], ["black", "black", "white", "white", "white", "white", "black", "black", "white", "white", "white", "white", "white", "black", "black", "black", "black", "black", "white", "white"], ["black", "black", "black", "black", "black", "white", "black", "black", "black", "white", "white", "white", "black", "black", "black", "black", "black", "black", "white", "white"], ["white", "white", "black", "black", "black", "white", "black", "black", "black", "white", "white", "white", "white", "white", "white", "white", "black", "black", "black", "black"], ["white", "white", "black", "black", "black", "black", "black", "black", "black", "white", "white", "black", "black", "white", "white", "white", "black", "black", "black", "black"], ["white", "white", "black", "black", "black", "black", "black", "black", "black", "white", "white", "black", "black", "white", "white", "white", "black", "black", "black", "black"], ["black", "black", "black", "black", "black", "black", "black", "black", "black", "white", "white", "white", "white", "white", "white", "red", "black", "black", "black", "black"], ["black", "black", "black", "black", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "black", "black", "black", "black"], ["black", "black", "black", "black", "white", "white", "white", "white", "white", "black", "black", "black", "white", "white", "white", "white", "black", "black", "black", "black"], ["black", "black", "white", "white", "white", "white", "white", "white", "white", "black", "black", "black", "white", "white", "white", "white", "black", "black", "black", "black"]]
+                destination.squaresInfo = DataMatrix
             }
         }
     }

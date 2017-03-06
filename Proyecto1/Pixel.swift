@@ -8,8 +8,8 @@
 
 import Foundation
 struct Pixel {
-    private var _x: Int = 0
-    private var _y: Int = 0
+    private var _x: Int = -1
+    private var _y: Int = -1
     
     var X: Int {
         get {

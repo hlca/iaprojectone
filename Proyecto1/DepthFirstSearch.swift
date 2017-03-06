@@ -10,8 +10,7 @@ import Foundation
 
 
 class DepthFirstSearch: GenericSolver {
-    func graphSearch() -> [Pixel]{
-        
+    func graphSearch() -> [Pixel]{   
         var explored: [Pixel] = []
         var stack: [Pixel] = [initialState]
         
