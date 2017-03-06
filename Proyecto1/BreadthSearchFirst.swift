@@ -32,11 +32,14 @@ class BreadthSearchFirst: GenericSolver {
             for action in myActions {
                 let myResult = result(state: s, action: action)
                 var isExplored = false
-                for thisExplored in explored {
-                    if(thisExplored.equals(other: myResult)) {
-                        isExplored = true
-                    }
+                if(explored.contains(where: {$0.X == myResult.X && $0.Y == myResult.Y})) {
+                    isExplored = true
                 }
+//                for thisExplored in explored {
+//                    if(thisExplored.equals(other: myResult)) {
+//                        
+//                    }
+//                }
                 if(!isExplored) {
                     var newPath: [Pixel] = path
                     newPath.append(myResult)
